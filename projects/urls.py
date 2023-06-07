@@ -9,4 +9,5 @@ router.register('api/projects', ProjectsViewSet, 'projects')
 
 urlpatterns = router.urls
 
-urlpatterns.append(path('api_key/', ApiKeyManager.as_view()))
+urlpatterns.extend([path('api_key/', ApiKeyManager.as_view()),
+                   path('api_key/<str:key>/', ApiKeyManager.as_view())])
